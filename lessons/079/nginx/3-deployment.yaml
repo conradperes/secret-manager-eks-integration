@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  namespace: production
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: nginx
-    spec:
+    Spec:cd
       serviceAccountName: nginx
       containers:
       - name: nginx
@@ -25,7 +25,7 @@ spec:
           mountPath: /mnt/api-token
           readOnly: true
         env:
-        - name: API_TOKEN
+        - name: API_TOKENV
           valueFrom:
             secretKeyRef:
               name: api-token
